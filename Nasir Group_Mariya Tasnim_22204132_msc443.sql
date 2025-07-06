@@ -221,9 +221,31 @@ FROM Employees e
 JOIN Departments d ON e.DepartmentID = d.DepartmentID;
 
 SELECT FirstName AS 'Employee Name', Salary AS 'Monthly Salary' FROM Employees;
+SELECT * FROM Employees;
+SELECT * FROM Departments;
+SELECT * FROM Products;
+SELECT * FROM Sales;
+SELECT * FROM Customers;
+SELECT * FROM Suppliers;
+SELECT * FROM Orders;
+ALTER TABLE Employees
+ADD Bonus DECIMAL(10,2);
+UPDATE Employees
+SET Bonus = CASE
+               WHEN EmployeeID BETWEEN 1 AND 10 THEN 5000
+               WHEN EmployeeID BETWEEN 11 AND 25 THEN 10000
+           END
+WHERE EmployeeID BETWEEN 1 AND 25;
+Select * from Employees
+Select * from Employees
+SELECT FirstName, LastName, Salary FROM Employees WHERE Salary &gt; 50000;
+SELECT * FROM Customers WHERE City = &#39;Dhaka&#39; OR City ="Dhaka" OR City= "Chittagong";
+SELECT OrderID FROM Orders WHERE OrderStatus = "Completed"
+UNION
+SELECT OrderID FROM Orders WHERE OrderStatus = "Pending";
+SELECT ProductName FROM Products WHERE QuantityInStock
+(SELECT AVG(QuantityInStock) FROM Products);
 
-
-
-
-
-
+SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID;
